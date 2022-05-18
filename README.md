@@ -71,8 +71,8 @@ verify_contaminated.pl
 
 verify_contaminated.pl -l [SRR LIST]\n
 Files used for creating synthetic contaminated FASTQ files are looked for
-in directory $dir_downloads. Synthetic contaminated files are stored in
-directory $dir_contaminated.
+in directory "downloads". Synthetic contaminated files are stored in
+directory "contaminated".
 
 -l SRR LIST: Optional text file containing list of SRA accessions to be used.
  If no text file is specified the default list will be used. Run the program
