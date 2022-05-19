@@ -1,5 +1,7 @@
 # HAI-Seq
 
+Scripts used for submitting FASTQ files for HAI isolates prior to upload and submission to NCBI SRA and Genome databases.
+
 ## batch_HAI.pl
 Batch submits the pairs of fastq files formatted YYYYEL-#####_R1.fastq.gz  
 
