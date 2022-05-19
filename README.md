@@ -1,6 +1,7 @@
 # HAI-Seq
 
 Scripts used for submitting FASTQ files for HAI isolates prior to upload and submission to NCBI SRA and Genome databases.
+Processed FASTQ and FASTA files are uploaded to NCBI BioProjects PRJNA288601 (gram-negative) and PRJNA629351 (C. diff)
 
 ## batch_HAI.pl
 Batch submits the pairs of fastq files formatted YYYYEL-#####_R1.fastq.gz  
