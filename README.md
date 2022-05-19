@@ -3,7 +3,7 @@
 ## batch_HAI.pl
 Batch submits the pairs of fastq files formatted YYYYEL-#####_R1.fastq.gz  
 
-batch_HAI.pl [DIRECTORY_IN] [DIRECTORY_OUT] [EMAIL]
+batch_HAI.pl [DIRECTORY_IN] [DIRECTORY_OUT] [EMAIL]  
 [DIRECTORY_IN]: Directory containing pairs of FASTQ files for processing  
 [DIRECTORY_OUT]: Directory to contain output subdirectories  
 [EMAIL]: Email address for notification (optional)  
@@ -11,7 +11,7 @@ batch_HAI.pl [DIRECTORY_IN] [DIRECTORY_OUT] [EMAIL]
 
 
 ## submit.sh
-Submit single jobs directly to Slurm - this is the slurm submission script  
+Submit single jobs directly to Slurm - this is the slurm submission script 
 called by batch_HAI.pl  
 
 submit.sh [DIRECTORY_IN] [ACCESSION] [DIRECTORY_OUT]  
@@ -36,7 +36,7 @@ upload.pl [DIR_IN] [DIR_RESULTS]
 ## verify_download.pl
 This program downloads FASTQ files from the SRA database using a list of SRR 
 accessions and subsamples those files. Files downloaded from SRA are stored 
-in directory $dir_downloads. Subsampled files are stored in directory $dir_down
+in directory $dir_downloads. Subsampled files are stored in directory $dir_down 
 sampled.
 
 verify_download.pl -p [SUBSAMPLE PROPORTION] -l [SRR LIST]  
@@ -71,12 +71,12 @@ SRR15065885,
 
 
 ## verify_contaminated.pl
-Files used for creating synthetic contaminated FASTQ files are looked for  
-in directory "downloads". Synthetic contaminated files are stored in
+Files used for creating synthetic contaminated FASTQ files are looked for 
+in directory "downloads". Synthetic contaminated files are stored in 
 directory "contaminated".
 
 verify_contaminated.pl -l [SRR LIST]  
--l SRR LIST: Optional text file containing list of SRA accessions to be used.  
- If no text file is specified the default list will be used. Run the program
- verify_download.pl to download the files first.
+-l SRR LIST: Optional text file containing list of SRA accessions to be used. 
+ If no text file is specified the default list will be used. Run the program 
+ verify_download.pl to download the files first.  
 -h This helpful help file  
