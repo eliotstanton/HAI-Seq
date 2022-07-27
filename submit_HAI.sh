@@ -8,7 +8,7 @@
 
 # File:                 submit_HAI.sh
 # Date created:         02 July 2021
-# Date last modified:   15 February 2022
+# Date last modified:   27 July 2022
 # Author:               Eliot Stanton (eliot.stanton@state.mn.us)
 # Description:          Perform QC analysis, genome assembly and species ID on
 #                       WGS data for upload to NCBI.
@@ -196,7 +196,7 @@ md5sum $FASTQ2 > $DIR_OUT2/$ACCESSION\_R2.fastq.gz.md5
 
 # Submit the initial job trimming and filtering reads:
 JOBID1=$(sbatch \
-        -p small \
+        -p msismall \
         --parsable \
         --job-name="trim-filter-$ACCESSION" \
         --output="$DIR_OUT2/$ACCESSION-trim-filter.out" \
@@ -216,7 +216,7 @@ printf "\t- Submitted job $JOBID1 to trim and filter reads using Trimmomatic and
 
 # Identify species using Kraken2:
 JOBID2=$(sbatch \
-	-p small \
+	-p msismall \
 	--parsable \
 	--job-name="kraken2-$ACCESSION" \
 	--output="$DIR_OUT2/$ACCESSION-kraken2.out" \
@@ -231,7 +231,7 @@ printf "\t- Submitted job $JOBID2 to run species identification using Kraken2\n"
 
 # Produce an assembly using SPAdes:
 JOBID3=$(sbatch \
-        -p small \
+        -p msismall \
         --parsable \
         --job-name="spades-$ACCESSION" \
         --output="$DIR_OUT2/$ACCESSION-spades.out" \
@@ -245,7 +245,7 @@ printf "\t- Submitted job $JOBID3 to produce genome assembly using SPAdes\n"
 
 # Run MLST on SPAdes assembly:
 JOBID4=$(sbatch \
-	-p small \
+	-p msismall \
 	--parsable \
 	--job-name="MLST-$ACCESSION" \
 	--output="$DIR_OUT2/$ACCESSION-mlst.out" \
@@ -265,7 +265,7 @@ printf "\n"
 if [ -n "$SLURM_JOB_ID" ]
 then
 	sbatch \
-		-p small \
+		-p msismall \
 		--dependency=afterok:$JOBID2:$JOBID3 \
 		--job-name="analysis-$ACCESSION" \
 		--output="$DIR_OUT2/$ACCESSION-analysis.out" \

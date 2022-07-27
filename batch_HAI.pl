@@ -9,7 +9,7 @@ use warnings;
 
 # File:                 batch.pl
 # Date created:         26 February 2021
-# Date last modified:   03 November 2021
+# Date last modified:   27 July 2022
 # Author:               Eliot Stanton (eliot.stanton@state.mn.us)
 # Description:          Create list of data analysis deliverables from
 #                       processed sequencing files and submit jobs to Slurm.
@@ -115,14 +115,14 @@ for ( my $i = 0; $i < scalar @array_out; $i++ ) {
         print "\n$i: $var_ID:\n";
 
 	print "\tsbatch \\
-		-p small \\
+		-p msismall \\
 		--output=$dir_out/$var_ID/$var_ID\-slurm.out \\
 		$var_submit_sh \\
 		$dir_in \\
 		$var_ID \\
 		$dir_out\n";
 
-	system ("sbatch --mail-type=END --mail-type=FAIL --mail-user=$var_email -p small --output=$dir_out/$var_ID/$var_ID\-slurm.out $var_submit_sh $dir_in $var_ID $dir_out");
+	system ("sbatch --mail-type=END --mail-type=FAIL --mail-user=$var_email -p msismall --output=$dir_out/$var_ID/$var_ID\-slurm.out $var_submit_sh $dir_in $var_ID $dir_out");
 
 	sleep 1;
 
